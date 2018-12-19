@@ -1,0 +1,455 @@
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001         LIST    P=PIC16F84A
+                      00002         INCLUDE "P16F84A.INC"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00208         LIST
+                      00003 
+2007   3FFA           00004         __CONFIG _HS_OSC & _WDT_OFF
+                      00005 
+  0000000C            00006 CNT1    EQU     0CH
+  0000000D            00007 CNT2    EQU     0DH
+  0000000E            00008 CNT3    EQU     0EH
+  0000000F            00009 CNT4    EQU     0FH
+  00000010            00010 CNT5    EQU     10H
+  00000012            00011 LEN     EQU     12H
+  00000013            00012 MU_M    EQU     13H
+                      00013 
+0000                  00014         ORG     0H
+0000                  00015 MAIN
+0000   1683           00016         BSF     STATUS, RP0
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   0185           00017         CLRF    TRISA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0186           00018         CLRF    TRISB
+0003   1283           00019         BCF     STATUS, RP0
+0004   1003           00020         BCF     STATUS, C
+0005   0186           00021         CLRF    PORTB
+0006   3000           00022         MOVLW   D'0'
+0007                  00023 MAINLP
+0007   2065           00024         CALL    ODO4
+0008   2055           00025         CALL    ORE4
+0009   2045           00026         CALL    OMI4
+000A   2035           00027         CALL    OFA4
+000B   2045           00028         CALL    OMI4
+000C   2055           00029         CALL    ORE4
+000D   2065           00030         CALL    ODO4
+000E   2045           00031         CALL    OMI4
+000F   2035           00032         CALL    OFA4
+0010   2075           00033         CALL    OSO4
+0011   2025           00034         CALL    ORA4
+0012   2075           00035         CALL    OSO4
+0013   2035           00036         CALL    OFA4
+0014   2045           00037         CALL    OMI4
+0015   2065           00038         CALL    ODO4
+0016   20A1           00039         CALL    TIME100U
+0017   2065           00040         CALL    ODO4
+0018   20A1           00041         CALL    TIME100U
+0019   2065           00042         CALL    ODO4
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+001A   20A1           00043         CALL    TIME100U
+001B   2065           00044         CALL    ODO4
+001C   20A1           00045         CALL    TIME100U
+001D   2065           00046         CALL    ODO4
+001E   2055           00047         CALL    ORE4
+001F   2045           00048         CALL    OMI4
+0020   2035           00049         CALL    OFA4
+0021   2045           00050         CALL    OMI4
+0022   2055           00051         CALL    ORE4
+0023   2065           00052         CALL    ODO4
+                      00053 
+0024   2807           00054         GOTO    MAINLP
+                      00055 
+                      00056 
+0025                  00057 ORA4
+0025   0092           00058         MOVWF   LEN
+0026   0A92           00059         INCF    LEN, F
+0027                  00060 ORA4_LEN
+0027   30DC           00061         MOVLW   D'220'
+0028   008D           00062         MOVWF   CNT2
+0029                  00063 LOOP_ORA4
+0029   1006           00064         BCF     PORTB, 0
+002A   3001           00065         MOVLW   D'1'
+002B   2090           00066         CALL    BASETIME
+002C   1406           00067         BSF     PORTB, 0
+002D   3001           00068         MOVLW   D'1'
+002E   2090           00069         CALL    BASETIME
+002F   0B8D           00070         DECFSZ  CNT2,F
+0030   2829           00071         GOTO    LOOP_ORA4
+0031   0B92           00072         DECFSZ  LEN,    F
+0032   2827           00073         GOTO    ORA4_LEN
+0033   3000           00074         MOVLW   D'0'
+0034   0008           00075         RETURN
+                      00076 
+0035                  00077 OFA4
+0035   0092           00078         MOVWF   LEN
+0036   0A92           00079         INCF    LEN, F
+0037                  00080 OFA4_LEN
+0037   30AE           00081         MOVLW   D'174'
+0038   008D           00082         MOVWF   CNT2
+0039                  00083 LOOP_OFA4
+0039   1006           00084         BCF     PORTB, 0
+003A   301F           00085         MOVLW   D'31'
+003B   2090           00086         CALL    BASETIME
+003C   1406           00087         BSF     PORTB, 0
+003D   301F           00088         MOVLW   D'31'
+003E   2090           00089         CALL    BASETIME
+003F   0B8D           00090         DECFSZ  CNT2,F
+0040   2839           00091         GOTO    LOOP_OFA4
+0041   0B92           00092         DECFSZ  LEN,    F
+0042   2837           00093         GOTO    OFA4_LEN
+0043   3000           00094         MOVLW   D'0'
+0044   0008           00095         RETURN
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00096 
+0045                  00097 OMI4
+0045   0092           00098         MOVWF   LEN
+0046   0A92           00099         INCF    LEN, F
+0047                  00100 OMI4_LEN
+0047   30A4           00101         MOVLW   D'164'
+0048   008D           00102         MOVWF   CNT2
+0049                  00103 LOOP_OMI4
+0049   1006           00104         BCF     PORTB, 0
+004A   3027           00105         MOVLW   D'39'
+004B   2090           00106         CALL    BASETIME
+004C   1406           00107         BSF     PORTB, 0
+004D   3027           00108         MOVLW   D'39'
+004E   2090           00109         CALL    BASETIME
+004F   0B8D           00110         DECFSZ  CNT2,F
+0050   2849           00111         GOTO    LOOP_OMI4
+0051   0B92           00112         DECFSZ  LEN,    F
+0052   2847           00113         GOTO    OMI4_LEN
+0053   3000           00114         MOVLW   D'0'
+0054   0008           00115         RETURN
+                      00116 
+0055                  00117 ORE4
+0055   0092           00118         MOVWF   LEN
+0056   0A92           00119         INCF    LEN, F
+0057                  00120 ORE4_LEN
+0057   3092           00121         MOVLW   D'146'
+0058   008D           00122         MOVWF   CNT2
+0059                  00123 LOOP_ORE4
+0059   1006           00124         BCF     PORTB, 0
+005A   303A           00125         MOVLW   D'58'
+005B   2090           00126         CALL    BASETIME
+005C   1406           00127         BSF     PORTB, 0
+005D   303A           00128         MOVLW   D'58'
+005E   2090           00129         CALL    BASETIME
+005F   0B8D           00130         DECFSZ  CNT2,F
+0060   2859           00131         GOTO    LOOP_ORE4
+0061   0B92           00132         DECFSZ  LEN,    F
+0062   2857           00133         GOTO    ORE4_LEN
+0063   3000           00134         MOVLW   D'0'
+0064   0008           00135         RETURN
+                      00136 
+0065                  00137 ODO4
+0065   0092           00138         MOVWF   LEN
+0066   0A92           00139         INCF    LEN, F
+0067                  00140 ODO4_LEN
+0067   3082           00141         MOVLW   D'130'
+0068   008D           00142         MOVWF   CNT2
+0069                  00143 LOOP_ODO4
+0069   1006           00144         BCF     PORTB, 0
+006A   304F           00145         MOVLW   D'79'
+006B   2090           00146         CALL    BASETIME
+006C   1406           00147         BSF     PORTB, 0
+006D   304F           00148         MOVLW   D'79'
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+006E   2090           00149         CALL    BASETIME
+006F   0B8D           00150         DECFSZ  CNT2,F
+0070   2869           00151         GOTO    LOOP_ODO4
+0071   0B92           00152         DECFSZ  LEN,    F
+0072   2867           00153         GOTO    ODO4_LEN
+0073   3000           00154         MOVLW   D'0'
+0074   0008           00155         RETURN
+                      00156 
+0075                  00157 OSO4
+0075   0092           00158         MOVWF   LEN
+0076   0A92           00159         INCF    LEN, F
+0077                  00160 OSO4_LEN
+0077   30C4           00161         MOVLW   D'196'
+0078   008D           00162         MOVWF   CNT2
+0079                  00163 LOOP_OSO4
+0079   1006           00164         BCF     PORTB, 0
+007A   300F           00165         MOVLW   D'15'
+007B   2090           00166         CALL    BASETIME
+007C   1406           00167         BSF     PORTB, 0
+007D   300F           00168         MOVLW   D'15'
+007E   2090           00169         CALL    BASETIME
+007F   0B8D           00170         DECFSZ  CNT2,F
+0080   2879           00171         GOTO    LOOP_OSO4
+0081   0B92           00172         DECFSZ  LEN,    F
+0082   2877           00173         GOTO    OSO4_LEN
+0083   3000           00174         MOVLW   D'0'
+0084   0008           00175         RETURN
+                      00176 
+0085                  00177 MU
+0085   0092           00178         MOVWF   LEN
+0086   0A92           00179         INCF    LEN, F
+0087                  00180 MU_LEN
+0087   3032           00181         MOVLW   D'50'
+0088   0093           00182         MOVWF   MU_M
+0089                  00183 MU_LOOP
+0089   20A9           00184         CALL    TIME10M
+008A   0B93           00185         DECFSZ  MU_M,   F
+008B   2889           00186         GOTO    MU_LOOP
+008C   0B92           00187         DECFSZ  LEN,    F
+008D   2887           00188         GOTO    MU_LEN
+008E   3000           00189         MOVLW   D'0'
+008F   0008           00190         RETURN
+                      00191 
+0090                  00192 BASETIME
+0090   008C           00193         MOVWF   CNT1
+0091                  00194 L3
+0091   209A           00195         CALL    TIME10U
+0092   0B8C           00196         DECFSZ  CNT1,F
+0093   2891           00197         GOTO    L3
+                      00198 
+0094   3070           00199         MOVLW   D'112'
+0095   008C           00200         MOVWF   CNT1
+0096                  00201 L4
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0096   209A           00202         CALL    TIME10U
+0097   0B8C           00203         DECFSZ  CNT1,F
+0098   2896           00204         GOTO    L4
+0099   0008           00205         RETURN
+                      00206 
+009A                  00207 TIME10U
+009A   300F           00208         MOVLW   0x0F
+009B   008E           00209         MOVWF   CNT3
+009C   0000           00210         NOP
+009D   0000           00211         NOP
+009E                  00212 LOOP1
+009E   0B8E           00213         DECFSZ  CNT3,   F
+009F   289E           00214         GOTO    LOOP1
+00A0   0008           00215         RETURN
+                      00216 
+00A1                  00217 TIME100U
+00A1   30A5           00218         MOVLW   0xA5
+00A2   008F           00219         MOVWF   CNT4
+00A3   0000           00220         NOP
+00A4   0000           00221         NOP
+00A5                  00222 LOOP2
+00A5   0B8F           00223         DECFSZ  CNT4,   F
+00A6   28A5           00224         GOTO    LOOP2
+00A7   3000           00225         MOVLW   D'0'
+00A8   0008           00226         RETURN
+                      00227 
+00A9                  00228 TIME10M
+00A9   3063           00229         MOVLW   0x63
+00AA   0090           00230         MOVWF   CNT5
+00AB   0000           00231         NOP
+00AC   0000           00232         NOP
+00AD                  00233 LOOP3
+00AD   20A1           00234         CALL    TIME100U
+00AE   0B90           00235         DECFSZ  CNT5,   F
+00AF   28AD           00236         GOTO    LOOP3
+00B0   0008           00237         RETURN                  ;2
+                      00238 
+                      00239         END
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BASETIME                          00000090
+C                                 00000000
+CNT1                              0000000C
+CNT2                              0000000D
+CNT3                              0000000E
+CNT4                              0000000F
+CNT5                              00000010
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+L3                                00000091
+L4                                00000096
+LEN                               00000012
+LOOP1                             0000009E
+LOOP2                             000000A5
+LOOP3                             000000AD
+LOOP_ODO4                         00000069
+LOOP_OFA4                         00000039
+LOOP_OMI4                         00000049
+LOOP_ORA4                         00000029
+LOOP_ORE4                         00000059
+LOOP_OSO4                         00000079
+MAIN                              00000000
+MAINLP                            00000007
+MU                                00000085
+MU_LEN                            00000087
+MU_LOOP                           00000089
+MU_M                              00000013
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+ODO4                              00000065
+ODO4_LEN                          00000067
+OFA4                              00000035
+OFA4_LEN                          00000037
+OMI4                              00000045
+OMI4_LEN                          00000047
+OPTION_REG                        00000081
+ORA4                              00000025
+ORA4_LEN                          00000027
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ORE4                              00000055
+ORE4_LEN                          00000057
+OSO4                              00000075
+OSO4_LEN                          00000077
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TIME100U                          000000A1
+TIME10M                           000000A9
+TIME10U                           0000009A
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+MPASM  5.51                     PICSOURCE.ASM   6-21-2018  17:39:53         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0080 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX X---------------
+2000 : -------X-------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:   177
+Program Memory Words Free:   847
+
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+

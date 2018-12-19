@@ -1,0 +1,271 @@
+# coding: UTF-8
+
+print u"\n長さに関するもの"
+msg = "abcdefghi"
+print len(msg)
+print msg.find("g")
+print msg[2:5]
+
+print u"----明示的な型変換"
+print 5 + int("5")
+age = 20
+print "I'm" + str(age)
+
+print u"----リスト 多言語で言う配列"
+sales = [255, 120, 350, 203, "abc"]
+print len(sales) # 5
+print sales[2] # 350
+sales[2] = 100
+print sales[2] # 100
+print sales[4]
+
+print u"----in 真偽値で判断"
+print 120 in sales # True
+
+print u"----range 数字の連番を単純に作成する"
+print range(10) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print range(3,10) # [3, 4, 5, 6, 7, 8, 9]
+print range(3,10,2) # [3, 5, 7, 9]
+
+print u"----sort : reverse"
+sales = [100, 40, 74, 30]
+print sales
+sales.reverse() # [30, 74, 40, 100]
+print sales
+sales.sort() # [30, 40, 74, 100]
+print sales
+sales.reverse() # [100, 74, 40, 30]
+print sales
+
+print u"----文字列とリスト"
+d = "2013/12/15"
+print d.split("/") # [100, 74, 40, 30]
+a = ["a", "b" , "c"]
+print "-".join(a) # a-b-c
+
+print u"----タプル（変更ができない）" # 小括弧で区切る
+b = (2, 6, 9)
+print len(b) # 3
+print b * 3 # (2, 6, 9, 2, 6, 9, 2, 6, 9)
+# b[2] = 10 などの書き換えはできない
+
+print u"----リストタプルの相互変換"
+c = list(b) #リストへ変換
+print str(c) + u" リスト形式"
+d = tuple(c) #タプルへ変換
+print str(d) + u" タプル形式"
+
+print u"----セット(集合型) 重複を許さない"
+a = set([1, 2, 3, 4])
+b = set([3, 4, 5])
+c = set([1, 2, 3, 4, 3, 2])
+print c # set([1, 2, 3, 4])
+# "-" 差集合を求める
+print a - b # set([1, 2])
+# "|" 和集合を求める
+print a | b # set([1, 2, 3, 4, 5])
+# "&" 席集合を求める
+print a & b # set([3, 4])
+# "^" どちらかにしかないものを求める
+print a ^ b # set([1, 2, 5])
+
+print u"----辞書 key value" #  dict 波括弧を使う
+sales = {"frendsA":100, "frendsB":200, "frendsC":300}
+print """sales = {"frendsA":100, "frendsB":200, "frendsC":300}"""
+print sales # {'frendsA': 100, 'frendsC': 300, 'frendsB': 200}
+#必ずしも入れた順に並ぶとは限らない
+print str(sales["frendsA"]) + " frendsAの値"
+sales["frendsB"] = 500
+print sales
+print "frendsC" in sales # True:真偽値で返される
+
+print u"----一覧を返す keys, values, items"
+print str(sales.keys()) + ":keys()"
+print str(sales.values()) + ":values()"
+print str(sales.items()) + ":items()"
+
+print u"----%による値の入れ込み"
+a = 10
+b = 1.23456789
+c = "frendsA"
+d = {"frendsB":200, "frendsC":400}
+print "age: %d" % a
+print "age: %10d" % a
+print "age: %010d" % a
+print "price: %f" % b
+print "price: %.2f" % b
+print "name: %s" % c
+print "sales: %(frendsB)d" % d
+print "%d and %f" % (a, b)
+
+print u"----条件分岐"
+score = 100
+if score > 60:
+    print "ok!"
+    print "OK!"
+# 比較演算子 > < >= <= == !=
+# 論理演算し and or not
+if score > 60 and score < 120:
+    print "andOK!"
+if 80 < score < 120:
+    print u"範囲制限OK！"
+# elif else の使い方
+if score > 60:
+    print "ok!"
+elif score > 40:
+    print "oh..."
+else:
+    print "dam!"
+# if文の特殊構文
+print "OK!" if score > 120 else "Dam!"
+print "OK!" if score > 80 else "Dam!"
+
+print u"----for文によるループ処理"
+sales = [13, 2576, 24, 354]
+sum = 0
+for sale in sales:
+    print sale
+
+# elseで処理を抜けるときに一度だけ実行させることが出来る
+for sale in sales:
+    sum += sale
+else:
+    print sum
+
+print "--NomalRange"
+for i in range(10):
+    print i
+
+print u"--ContinueRange:4を飛ばす" # continueに入った場合そのループの処理から次に移る
+for i in range(10):
+    if i == 4:
+        continue
+    print i
+
+print u"--BreakRange:4で抜ける" # breakに入った場合そのループ処理を抜ける
+for i in range(10):
+    if i == 4:
+        break
+    print i
+
+print u"--辞書でループ処理--"
+users = {"frendsA": 200, "frendsB": 300, "frendsC": 400}
+for key,value in users.items():
+  print "key: %s value: %d" % (key, value)
+for key in users.keys():
+  print key
+for value in users.values():
+  print value
+
+print u"--whileループ処理--"
+n = 0
+while n < 10:
+  print n
+  n += 1
+else:
+  print "end"
+
+n = 0
+while n < 10:
+  if n == 3:
+    n += 1
+    continue
+  print n
+  n += 1
+else :
+  print "end"
+
+n = 0
+while n < 10:
+  if n == 4:
+    break
+  print n
+  n += 1
+else:
+  print "end"
+
+print u"--関数を使う--"
+def hello():
+  print "helloPython\n"
+hello()
+
+def hello(name):
+  print "helloPython for %s \n" % name
+hello("genta")
+
+def hello(name,num):
+  print "helloPython for %s \n" % name * num
+hello("kojima", 2)
+hello("batako", 3)
+
+def hello(name,num = 5):
+  print "helloPython for %s \n" % name * num
+hello("kenji")
+hello(num = 2,name = "sasuke")
+
+def hello(name,num = 5):
+  return "helloPython for %s \n" % name * num
+s = hello("maruko",2)
+print s
+
+print u"--passを使う--\n"#関数の中身は後で書きたい時に使う
+def pass_func():
+  pass
+
+print u"--map,lambdaを使う--"#リストを用いたりして使える、また無名関数も使える
+def pow_func(x):
+  return x * x
+print map(pow_func, [3, 4, 5])
+
+print map(lambda x:x * x,[3, 4, 5])#lambdaで無名関数を作る　使い捨て関数
+
+print u"--オブジェクトを作ってみよう--"
+#オブジェクト(変数と関数をまとめたもの)
+#クラス:オブジェクトの設計図
+#インスタンス:クラスを実体化したもの
+class User(object):
+  def __init__(self,name):
+    self.name = name
+  def greet(self):
+    print "my name is %s!" % self.name
+class SuperUser(User):
+  def shout(self):
+    print "%s is SUPER!!" % self.name
+
+"""
+
+class内で定義されたselfはclass自身を指していて
+self.nameの場合、Userクラスのname変数という使い方になる
+
+"""
+
+tom = SuperUser("Tom")
+tom.greet()
+tom.shout()
+
+print u"--モジュールを使う--"
+import math, random
+print math.ceil(5.2) #6
+for i in range(5):
+  print random.random()
+
+print u"--with構文--"
+#close()を呼び出す場合、予め終了地点が定められてる時に
+#with構文内に収めることで安全に終了処理を呼び出すことできる
+
+print u"--osの機能を使う--"
+#import os
+os.system('ls -l')
+#wgetの並列ダウンロードの呼び出し
+os.system('xargs -P 20 -n 1 wget -q -nc $1 -P ./Directory < ' + filepath)
+
+#win32guiの色々
+win32gui.SendMessage(hwnd, win32con.WM_SETTEXT, 0, text)
+#hwnd ウィンドウのハンドル情報
+#win32con.WM_SETTEXT,外部のWindowsに文字列を入力
+#第3引数　未使用
+#第4関数　入力したい文字列
+win32gui.SendMessage(self.play, win32con.BM_CLICK, 0, 0)
+#self.play ウィンドウの中のself.playの文字列と同じものを選択
+#wind32con.BM_CLICK windowsのクリックを内部的に処理
+#第3引数　第4引数　未使用

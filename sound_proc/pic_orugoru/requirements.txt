@@ -1,0 +1,4 @@
+pandas
+wave
+numpy
+tqdm

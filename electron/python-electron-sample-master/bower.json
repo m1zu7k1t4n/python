@@ -1,0 +1,36 @@
+{
+  "name": "pyelectron",
+  "description": "",
+  "main": "main.js",
+  "license": "BSD-2-Clause",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.3",
+    "bootstrap": "~3.3.5"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "js": "**/bootstrap.js",
+      "css": [
+        "**/bootstrap.min.css",
+        "**/bootstrap-theme.min.css"
+      ]
+    },
+    "bootstrap-waitingfor": {
+      "js": "**/waitingfor.js"
+    },
+    "jquery": {
+      "js": "**/dist/jquery.min.js"
+    }
+  }
+}

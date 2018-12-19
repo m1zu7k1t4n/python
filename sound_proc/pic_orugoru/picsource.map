@@ -1,0 +1,96 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Thu Jun 21 17:39:54 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000162
+ .config_2007_PICSOURCE.O       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x0000b0      
+                            0x002007    0x002007      
+            178 out of 1094 program addresses used, program memory utilization is 16%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 BASETIME   0x000090    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                       L3   0x000091    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                       L4   0x000096    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                    LOOP1   0x00009e    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                    LOOP2   0x0000a5    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                    LOOP3   0x0000ad    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_ODO4   0x000069    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_OFA4   0x000039    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_OMI4   0x000049    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_ORA4   0x000029    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_ORE4   0x000059    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_OSO4   0x000079    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     MAIN   0x000000    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                   MAINLP   0x000007    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                       MU   0x000085    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                   MU_LEN   0x000087    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                  MU_LOOP   0x000089    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     ODO4   0x000065    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 ODO4_LEN   0x000067    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     OFA4   0x000035    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 OFA4_LEN   0x000037    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     OMI4   0x000045    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 OMI4_LEN   0x000047    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     ORA4   0x000025    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 ORA4_LEN   0x000027    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     ORE4   0x000055    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 ORE4_LEN   0x000057    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     OSO4   0x000075    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 OSO4_LEN   0x000077    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 TIME100U   0x0000a1    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                  TIME10M   0x0000a9    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                  TIME10U   0x00009a    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     MAIN   0x000000    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                   MAINLP   0x000007    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     ORA4   0x000025    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 ORA4_LEN   0x000027    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_ORA4   0x000029    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     OFA4   0x000035    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 OFA4_LEN   0x000037    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_OFA4   0x000039    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     OMI4   0x000045    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 OMI4_LEN   0x000047    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_OMI4   0x000049    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     ORE4   0x000055    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 ORE4_LEN   0x000057    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_ORE4   0x000059    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     ODO4   0x000065    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 ODO4_LEN   0x000067    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_ODO4   0x000069    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                     OSO4   0x000075    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 OSO4_LEN   0x000077    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                LOOP_OSO4   0x000079    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                       MU   0x000085    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                   MU_LEN   0x000087    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                  MU_LOOP   0x000089    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 BASETIME   0x000090    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                       L3   0x000091    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                       L4   0x000096    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                  TIME10U   0x00009a    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                    LOOP1   0x00009e    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                 TIME100U   0x0000a1    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                    LOOP2   0x0000a5    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                  TIME10M   0x0000a9    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+                    LOOP3   0x0000ad    program     static Y:\python\sound_proc\pic_orugoru\picsource.asm
+
+

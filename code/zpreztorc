@@ -1,0 +1,267 @@
+#
+# Sets Prezto options.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+#
+# General
+#
+
+# Set case-sensitivity for completion, history lookup, etc.
+# zstyle ':prezto:*:*' case-sensitive 'yes'
+
+# Color output (auto set to 'no' on dumb terminals).
+zstyle ':prezto:*:*' color 'yes'
+
+# Set the Zsh modules to load (man zshmodules).
+# zstyle ':prezto:load' zmodule 'attr' 'stat'
+
+# Set the Zsh functions to load (man zshcontrib).
+# zstyle ':prezto:load' zfunction 'zargs' 'zmv'
+
+# Set the Prezto modules to load (browse modules).
+# The order matters.
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'prompt'
+
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+# zstyle ':prezto:module:autosuggestions:color' found ''
+
+#
+# Editor
+#
+
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':prezto:module:editor' key-bindings 'emacs'
+
+# Auto convert .... to ../..
+# zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+#
+# Git
+#
+
+# Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
+# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+
+#
+# GNU Utility
+#
+
+# Set the command prefix on non-GNU systems.
+# zstyle ':prezto:module:gnu-utility' prefix 'g'
+
+#
+# History Substring Search
+#
+
+# Set the query found color.
+# zstyle ':prezto:module:history-substring-search:color' found ''
+
+# Set the query not found color.
+# zstyle ':prezto:module:history-substring-search:color' not-found ''
+
+# Set the search globbing flags.
+# zstyle ':prezto:module:history-substring-search' globbing-flags ''
+
+#
+# Pacman
+#
+
+# Set the Pacman frontend.
+# zstyle ':prezto:module:pacman' frontend 'yaourt'
+
+#
+# Prompt
+#
+
+# Set the prompt theme to load.
+# Setting it to 'random' loads a random theme.
+# Auto set to 'off' on dumb terminals.
+zstyle ':prezto:module:prompt' theme 'sorin'
+
+#
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+
+#
+# Screen
+#
+
+# Auto start a session when Zsh is launched in a local terminal.
+# zstyle ':prezto:module:screen:auto-start' local 'yes'
+
+# Auto start a session when Zsh is launched in a SSH connection.
+# zstyle ':prezto:module:screen:auto-start' remote 'yes'
+
+#
+# SSH
+#
+
+# Set the SSH identities to load into the agent.
+# zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+
+#
+# Syntax Highlighting
+#
+
+# Set syntax highlighters.
+# By default, only the main highlighter is enabled.
+# zstyle ':prezto:module:syntax-highlighting' highlighters \
+#   'main' \
+#   'brackets' \
+#   'pattern' \
+#   'line' \
+#   'cursor' \
+#   'root'
+#
+# Set syntax highlighting styles.
+# zstyle ':prezto:module:syntax-highlighting' styles \
+#   'builtin' 'bg=blue' \
+#   'command' 'bg=blue' \
+#   'function' 'bg=blue'
+
+#
+# Terminal
+#
+
+# Auto set the tab and window titles.
+# zstyle ':prezto:module:terminal' auto-title 'yes'
+
+# Set the window title format.
+# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+
+# Set the tab title format.
+# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+
+#
+# Tmux
+#
+
+# Auto start a session when Zsh is launched in a local terminal.
+# zstyle ':prezto:module:tmux:auto-start' local 'yes'
+
+# Auto start a session when Zsh is launched in a SSH connection.
+# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+
+# Integrate with iTerm2.
+# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+alias la='ls -a'
+alias ll='ls -l'
+alias apply='source ~/.zpreztorc && rm -f /mnt/hdd/学校用/Code/zpreztorc && cp -f ~/.zprezto/runcoms/zpreztorc /mnt/hdd/学校用/Code'
+alias sl='ls'
+alias sakura='ssh -p 12834 m1zu7k1t4n-sakura@153.126.176.44'
+alias rm='\rm -ri'
+alias df='df -h'
+alias du='du -h'
+alias grep='grep --color'
+alias ps='ps --sort=start_time'
+cdls (){
+  \cd "$@" && ls
+}
+alias cd='cdls'
+alias hdd='cd /mnt/hdd'
+alias movie='cd /mnt/hdd/動画'
+alias photo='cd /mnt/hdd/写真'
+alias cache='cd /mnt/hdd/HDDdownload/CACHE'
+alias school='cd /mnt/hdd/学校用/Code/Cygwin'
+alias code='cd /mnt/hdd/学校用/Code'
+alias music='cd /mnt/hdd/音楽'
+alias youtube='cd /mnt/hdd/音楽/youtube'
+alias github='cd /mnt/hdd/サーバー管理/github'
+alias .zshrc='subl ~/.zpreztorc'
+sscp (){
+	\scp -r -P 12834 "$1" m1zu7k1t4n-sakura@153.126.176.44:"$2"
+}
+rscp(){
+	\scp -r -P 12834 m1zu7k1t4n-sakura@153.126.176.44:"$@"
+}
+alias vpnstart='sudo /usr/local/vpnclient/vpnclient start'
+alias vpnstop='sudo /usr/local/vpnclient/vpnclient stop'
+alias vpncmd='sudo /usr/local/vpnclient/vpncmd'
+alias gdrive_m='google-drive-ocamlfuse /mnt/hdd/googledrive'
+alias gdrive_u='fusermount -u /mnt/hdd/googledrive'
+alias gdrive='cd /mnt/hdd/googledrive'
+export PATH=$PATH:/usr/local/ffmpeg_build/bin
+epush (){
+	\cd /mnt/hdd/サーバー管理/github/"$1" && \git add "$2" && \git commit -m "edit $2" && \git push origin master
+}
+alias push='epush'
+
+# helper function to autoload
+# Example 1 : zload ~/work/function/_f
+# Example 2 : zload *
+function zload {
+	if [[ "${#}" -le 0 ]]; then
+		echo "Usage: $0 PATH..."
+		echo 'Load specified files as an autoloading function'
+		return 1
+	fi
+
+	local file function_path function_name
+	for file in "$@"; do
+		if [[ -z "$file" ]]; then
+			continue
+		fi
+
+		function_path="${file:h}"
+		function_name="${file:t}"
+
+		if (( $+functions[$function_name] )) ; then
+			# "function_name" is defined
+			unfunction "$function_name"
+		fi
+		FPATH="$function_path" autoload -Uz +X "$function_name"
+
+		if [[ "$function_name" == _* ]]; then
+			# "function_name" is a completion script
+
+			# fpath requires absolute path
+			# convert relative path to absolute path with :a modifier
+			fpath=("${function_path:a}" $fpath) compinit
+		fi
+	done
+}
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+dlcheck (){
+	\sudo youtube-dl -F "$1"
+}
+
+dltouhou (){
+	\pushd /mnt/hdd/音楽/youtube/touhou && \sudo youtube-dl -f 140 --no-warnings --ignore-errors -o "%(title)s.%(ext)s" "$1" && \find . -name "* *" | rename 's/ /_/g' && \popd
+}
+
+dlmusic (){
+	\sudo youtube-dl -f 140 --no-warnings --ignore-errors -o "%(title)s.%(ext)s" "$1" && \find . -name "* *" | rename 's/ /_/g'
+}
+
+dlmovie (){
+	\sudo youtube-dl -f 22 --no-warnings --ignore-errors -o "%(title)s.%(ext)s" "$1" && \find . -name "* *" | rename 's/ /_/g'
+}
+
+unspace (){
+	\find . -name "* *" | rename 's/ /_/g'
+}
+
+dlxvideo (){
+	\sudo youtube-dl -f 0 --no-warnings --ignore-errors -o "%(title)s.%(ext)s" "$1" && \find . -name "* *" | rename 's/ /_/g'
+}

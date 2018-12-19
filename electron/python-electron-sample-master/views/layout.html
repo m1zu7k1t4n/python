@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    {% endblock %}
+    <!-- Load CSS and Javascript -->
+    <script src={{url_for('static', filename='js/jquery.min.js')}}></script>
+    <script>
+    /**
+     * fix jQuery reference error.
+     * see https://github.com/atom/electron/issues/345
+     */
+    try {
+        $ = jQuery = module.exports;
+    } catch(e) {}
+    </script>
+    <script src={{url_for('static', filename='js/bootstrap.js')}}></script>
+    <link href={{url_for('static', filename='css/bootstrap.min.css')}}  rel="stylesheet" />    
+    <title>{% block title %}{% endblock %} - pyelectron</title>
+  </head>
+  
+  <body>
+    {% include "partials/header_navbar.html" %}
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>    
+  </body>
+</html>

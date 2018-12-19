@@ -1,0 +1,17 @@
+digraph {
+	node [shape=circle]
+	overlap=false
+	a [label=a]
+	r [label=r]
+	a [label=a]
+	y [label=y]
+	a [label=a]
+	m [label=m]
+	a [label=a]
+	a -> r
+	r -> a
+	a -> y
+	y -> a
+	a -> m
+	m -> a
+}

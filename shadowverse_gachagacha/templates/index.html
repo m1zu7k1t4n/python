@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+  <!-- Form
+  ================================================== -->
+<div class="form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="lead">
+          {% if result %}
+            ALL PACK:
+            {{ pack_all.count }} 回目
+            合計金額 {{ pack_all.price }} 円<br>
+
+            STANDARD CARDPACK:
+            {{ standard.count }} 回目
+            合計金額 {{ standard.price }} 円<br>
+
+            DARKNESS EVOLVED:
+            {{ evolved.count }} 回目
+            合計金額 {{ evolved.price }} 円<br>
+
+            RISE OF BAHAMUT:
+            {{ bahamut.count }} 回目
+            合計金額 {{ bahamut.price }} 円<br>
+
+            LEGEND:
+            ALL {{pack_all.legend}}枚,
+            STANDARD {{standard.legend}}枚,
+            EVOLVED {{evolved.legend}}枚,
+            BAHAMUT {{bahamut.legend}}枚 <br>
+            GOLD:
+            ALL {{pack_all.gold}}枚,
+            STANDARD {{standard.gold}}枚,
+            EVOLVED {{evolved.gold}}枚,
+            BAHAMUT {{bahamut.gold}}枚 <br>
+            SILVER:
+            ALL {{pack_all.silver}}枚,
+            STANDARD {{standard.silver}}枚,
+            EVOLVED {{evolved.silver}}枚,
+            BAHAMUT {{bahamut.silver}}枚 <br>
+            BRONZE:
+            ALL {{pack_all.bronze}}枚,
+            STANDARD {{standard.bronze}}枚,
+            EVOLVED {{evolved.bronze}}枚,
+            BAHAMUT {{bahamut.bronze}}枚 <br>
+
+            {% for v in result %}
+              {{ v }} <br>
+            {% endfor %}
+          {% else %}
+            {{ message }}
+          {% endif %}
+        </p>
+        <form action="/post" method="post" name="standard" class="form-inline">
+          <button type="submit" name="standard" class="btn btn-default">STANDARD CARDPACK</button>
+        </form>
+        <form action="/post" method="post" name="evolved" class="form-inline">
+          <button type="submit" name="evolved" class="btn btn-default">DARKNESS EVOLVED</button>
+        </form>
+        <form action="/post" method="post" name="bahamut" class="form-inline">
+          <button type="submit" name="bahamut" class="btn btn-default">RISE OF BAHAMUT</button>
+        </form>
+        <form action="/post" method="post" name="reset" class="form-inline">
+          <button type="submit" name="reset" class="btn btn-default">ぜーんぶきえちゃえ！</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
