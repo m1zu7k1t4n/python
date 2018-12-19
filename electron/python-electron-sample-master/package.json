@@ -10,8 +10,8 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "electron-prebuilt": "~0.35.1",
-    "jquery": "~2.1.4",
-    "bootstrap": "~3.3.5",
+    "jquery": ">=3.0.0",
+    "bootstrap": ">=4.1.2",
     "bower": "~1.6.5",
     "grunt-cli": "~0.1.13",
     "grunt": "~0.4.5",

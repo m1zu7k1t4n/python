@@ -1,6 +1,6 @@
 # coding: utf-8
 
-API_TOKEN = "xoxb-180491094486-Bd7AFMG1VtPDlR9pAjnr4QFh"
+API_TOKEN = ""
 
 DEFAULT_REPLY = "でふぁーると"
 
